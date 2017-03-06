@@ -9,7 +9,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        Scanner yts = new Scanner(new File(""));
+        Scanner yts = new Scanner(new File("RegularSeasonDetailedResults3YoungstownState (1) (2).csv"));
+        yts.useDelimiter("\\s*,\\s*");
         ArrayList<Team> lty = new ArrayList<>();
         Team bob = new Team(yts.nextInt());
         bob.acceptValues(yts.nextInt(),yts.nextInt(),yts.nextInt(),yts.nextInt(),yts.nextInt(),yts.nextInt(),yts.nextInt(),yts.nextInt(),yts.nextInt());
