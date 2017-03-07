@@ -20,7 +20,6 @@ public class Main {
             if(s >= f + 1) {
                 f = s;
                 Team bill = new Team(f);
-                System.out.println(bill.team);
                 bill.acceptValues(yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble());
                 lty.add(bill);
             } else if (s == f){
@@ -29,6 +28,8 @@ public class Main {
         }
         for(int x = 0; x < lty.size(); x++){
             lty.get(x).calcAvgs();
+            System.out.println(lty.get(x).team);
+            System.out.println(lty.get(x).gap());
         }
     }
 }
