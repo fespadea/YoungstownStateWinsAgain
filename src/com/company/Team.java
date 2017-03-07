@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Created by fs279 on 3/2/17.
