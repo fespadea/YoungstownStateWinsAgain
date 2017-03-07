@@ -9,21 +9,26 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        Scanner yts = new Scanner(new File("RegularSeasonDetailedResults3YoungstownState (1) (2).csv"));
-        yts.useDelimiter("\\s*,\\s*");
+        Scanner yts = new Scanner(new File("RegularSeasonDetailedResults3YoungstownState (1) (2) (3) (4).txt"));
         ArrayList<Team> lty = new ArrayList<>();
         Team bob = new Team(yts.nextInt());
-        bob.acceptValues(yts.nextInt(),yts.nextInt(),yts.nextInt(),yts.nextInt(),yts.nextInt(),yts.nextInt(),yts.nextInt(),yts.nextInt(),yts.nextInt());
+        bob.acceptValues(yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble());
         lty.add(bob);
         int f = bob.team;
         while(yts.hasNextInt()){
-            if(yts.nextInt() == f) {
-                Team bill = new Team(yts.nextInt());
-                bill.acceptValues(yts.nextInt(), yts.nextInt(), yts.nextInt(), yts.nextInt(), yts.nextInt(), yts.nextInt(), yts.nextInt(), yts.nextInt(), yts.nextInt());
+            int s = yts.nextInt();
+            if(s >= f + 1) {
+                f = s;
+                Team bill = new Team(f);
+                System.out.println(bill.team);
+                bill.acceptValues(yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble());
                 lty.add(bill);
-            } else if (yts.nextInt() == f + 1){
-                lty.get(lty.size()-1).acceptValues(yts.nextInt(), yts.nextInt(), yts.nextInt(), yts.nextInt(), yts.nextInt(), yts.nextInt(), yts.nextInt(), yts.nextInt(), yts.nextInt());
+            } else if (s == f){
+                lty.get(lty.size()-1).acceptValues(yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble());
             }
+        }
+        for(int x = 0; x < lty.size(); x++){
+            lty.get(x).calcAvgs();
         }
     }
 }
