@@ -4,11 +4,12 @@ package com.company;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
-public class Main {
+public class Main implements Comparator{
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException  {
         Scanner yts = new Scanner(new File("RegularSeasonDetailedResults3YoungstownState (1) (2) (3) (4) (5).tsv"));
         ArrayList<Team> lty = new ArrayList<>();
         Team bob = new Team(yts.nextInt());
@@ -28,8 +29,27 @@ public class Main {
         }
         for(int x = 0; x < lty.size(); x++){
             lty.get(x).calcAvgs();
-            System.out.println(lty.get(x).team);
-            System.out.println(lty.get(x).gap());
         }
+        Main comp = new Main();
+        lty.sort(comp);
+        int v = 351;
+        for(Team bobo: lty){
+            System.out.println(v-- + ".");
+            System.out.println(bobo.team);
+            System.out.println(bobo.gap());
+        }
+    }
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        Team bob = (Team)o1;
+        Team bill = (Team)o2;
+        if(bob.gap() > bill.gap()){
+            return 1;
+        }
+        else if(bob.gap() < bill.gap()){
+            return -1;
+        }
+        return 0;
     }
 }

@@ -49,6 +49,7 @@ public class Team {
         blkAvg = billy[8];
     }
     public double gap(){
+        gpa = 0;
         gpa += fgRatioAvg*1.5;
         gpa += fg3RatioAvg*1.2;
         gpa += ftRatioAvg;
