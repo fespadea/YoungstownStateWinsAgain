@@ -48,17 +48,21 @@ public class Team {
         stlAvg = billy[7];
         blkAvg = billy[8];
     }
-    public double gap(){
+    public double dgap(){
+        gpa = 0;
+        gpa += drAvg*3;
+        gpa += stlAvg*3;
+        gpa += blkAvg*20;
+        return gpa;
+    }
+    public double ogap(){
         gpa = 0;
         gpa += fgRatioAvg*1.5;
         gpa += fg3RatioAvg*1.2;
         gpa += ftRatioAvg;
         gpa += orAvg*4.5;
-        gpa += drAvg*3;
         gpa += astAvg*3.5;
         gpa -= toAvg*4;
-        gpa += stlAvg*3;
-        gpa += blkAvg*20;
         return gpa;
     }
     public double gpa;

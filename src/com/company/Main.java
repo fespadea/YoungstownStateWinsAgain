@@ -36,7 +36,8 @@ public class Main implements Comparator{
         for(Team bobo: lty){
             System.out.println(v-- + ".");
             System.out.println(bobo.team);
-            System.out.println(bobo.gap());
+            System.out.println(bobo.dgap());
+            System.out.println(bobo.ogap());
         }
     }
 
@@ -44,10 +45,10 @@ public class Main implements Comparator{
     public int compare(Object o1, Object o2) {
         Team bob = (Team)o1;
         Team bill = (Team)o2;
-        if(bob.gap() > bill.gap()){
+        if(bob.ogap()-bill.dgap() > bill.ogap()-bob.dgap()){
             return 1;
         }
-        else if(bob.gap() < bill.gap()){
+        else if(bob.ogap()-bill.dgap() < bill.ogap()-bob.dgap()){
             return -1;
         }
         return 0;
