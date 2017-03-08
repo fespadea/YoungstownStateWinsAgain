@@ -10,10 +10,10 @@ import java.util.Scanner;
 public class Main implements Comparator{
 
     public static void main(String[] args) throws IOException  {
-        Scanner yts = new Scanner(new File("RegularSeasonDetailedResults3YoungstownState (1) (2) (3) (4) (5).tsv"));
+        Scanner yts = new Scanner(new File("RegularSeasonDetailedResults3YoungstownState (1) (2) (3) (4) (5) (6).tsv"));
         ArrayList<Team> lty = new ArrayList<>();
         Team bob = new Team(yts.nextInt());
-        bob.acceptValues(yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble());
+        bob.acceptValues(yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble());
         lty.add(bob);
         int f = bob.team;
         while(yts.hasNextInt()){
@@ -21,10 +21,10 @@ public class Main implements Comparator{
             if(s >= f + 1) {
                 f = s;
                 Team bill = new Team(f);
-                bill.acceptValues(yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble());
+                bill.acceptValues(yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble());
                 lty.add(bill);
             } else if (s == f){
-                lty.get(lty.size()-1).acceptValues(yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble());
+                lty.get(lty.size()-1).acceptValues(yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(), yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble());
             }
         }
         for(int x = 0; x < lty.size(); x++){
@@ -38,6 +38,15 @@ public class Main implements Comparator{
             System.out.println(bobo.team);
             System.out.println(bobo.dgap());
             System.out.println(bobo.ogap());
+            System.out.print(bobo.fgMadeAvg*(bobo.fgRatioAvg/100)*7 + "-");
+            System.out.print(bobo.fg3MadeAvg*(bobo.fg3RatioAvg/100)*20 + "-");
+            System.out.print(bobo.ftMadeAvg*(bobo.ftRatioAvg/100)*4 + "-");
+            System.out.print(bobo.orAvg*4 + "-");
+            System.out.print(bobo.drAvg*2 + "-");
+            System.out.print(bobo.astAvg*3.5 + "-");
+            System.out.print(bobo.toAvg*4 + "-");
+            System.out.print(bobo.stlAvg*5 + "-");
+            System.out.println(bobo.blkAvg*8);
         }
     }
 

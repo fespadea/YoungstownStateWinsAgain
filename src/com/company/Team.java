@@ -9,7 +9,7 @@ public class Team {
     public Team(int t){
         team = t;
     }
-    public void acceptValues(double a, double b, double c, double d, double e, double f, double g, double h, double i){
+    public void acceptValues(double a, double b, double c, double d, double e, double f, double g, double h, double i, double j, double k, double l){
         fgRatio.add(a);
         fg3Ratio.add(b);
         ftRatio.add(c);
@@ -19,9 +19,12 @@ public class Team {
         to.add(g);
         stl.add(h);
         blk.add(i);
+        fgMade.add(j);
+        fg3Made.add(k);
+        ftMade.add(l);
     }
     public void calcAvgs(){
-        double [] billy = {fgRatioAvg, fg3RatioAvg, ftRatioAvg, orAvg, drAvg, astAvg, toAvg, stlAvg, blkAvg};
+        double [] billy = {fgRatioAvg, fg3RatioAvg, ftRatioAvg, orAvg, drAvg, astAvg, toAvg, stlAvg, blkAvg, fgMadeAvg, fg3MadeAvg, ftMadeAvg};
         ArrayList<ArrayList<Double>> bobby = new ArrayList<>();
         bobby.add(fgRatio);
         bobby.add(fg3Ratio);
@@ -32,6 +35,9 @@ public class Team {
         bobby.add(to);
         bobby.add(stl);
         bobby.add(blk);
+        bobby.add(fgMade);
+        bobby.add(fg3Made);
+        bobby.add(ftMade);
         for(int x = 0; x < billy.length; x++){
             for(int y = 0; y < bobby.get(x).size(); y++){
                 billy[x] += bobby.get(x).get(y);
@@ -47,20 +53,23 @@ public class Team {
         toAvg = billy[6];
         stlAvg = billy[7];
         blkAvg = billy[8];
+        fgMadeAvg = billy[9];
+        fg3MadeAvg = billy[10];
+        ftMadeAvg = billy[11];
     }
     public double dgap(){
         gpa = 0;
-        gpa += drAvg*3;
-        gpa += stlAvg*3;
-        gpa += blkAvg*20;
+        gpa += drAvg*2;
+        gpa += stlAvg*5;
+        gpa += blkAvg*8;
         return gpa;
     }
     public double ogap(){
         gpa = 0;
-        gpa += fgRatioAvg*1.5;
-        gpa += fg3RatioAvg*1.2;
-        gpa += ftRatioAvg;
-        gpa += orAvg*4.5;
+        gpa += fgMadeAvg*(fgRatioAvg/100)*7;
+        gpa += fg3MadeAvg*(fg3RatioAvg/100)*20;
+        gpa += ftMadeAvg*(ftRatioAvg/100)*4;
+        gpa += orAvg*4;
         gpa += astAvg*3.5;
         gpa -= toAvg*4;
         return gpa;
@@ -75,6 +84,9 @@ public class Team {
     public double toAvg = 0;
     public double stlAvg = 0;
     public double blkAvg = 0;
+    public double fgMadeAvg = 0;
+    public double fg3MadeAvg = 0;
+    public double ftMadeAvg = 0;
     public int team;
     public ArrayList<Double> fgRatio = new ArrayList<>();
     public ArrayList<Double> fg3Ratio = new ArrayList<>();
@@ -85,4 +97,7 @@ public class Team {
     public ArrayList<Double> to = new ArrayList<>();
     public ArrayList<Double> stl = new ArrayList<>();
     public ArrayList<Double> blk = new ArrayList<>();
+    public ArrayList<Double> fgMade = new ArrayList<>();
+    public ArrayList<Double> fg3Made = new ArrayList<>();
+    public ArrayList<Double> ftMade = new ArrayList<>();
 }
