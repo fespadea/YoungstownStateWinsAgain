@@ -48,6 +48,38 @@ public class Main implements Comparator{
             System.out.print(bobo.stlAvg*5 + "-");
             System.out.println(bobo.blkAvg*8);
         }
+        ArrayList<String> billo = new ArrayList<>();
+        int [] bibo = new int[64];
+        ArrayList<Team> bracket = new ArrayList<>();
+        for(int x = 0; x < 64; x++){
+            Scanner input = new Scanner(System.in);
+            billo.add(input.nextLine());
+            Scanner teams = new Scanner(new File("Teams.tsv"));
+            while (teams.hasNext()) {
+                if (teams.next().equals(billo.get(billo.size() - 1))) {
+                    bibo[x] = teams.nextInt() - 1;
+                }
+            }
+            for (int i = 0; i < lty.size(); i++) {
+                if (lty.get(i).team == bibo[x]) {
+                    lty.get(i).teamName = billo.get(x);
+                    bracket.add(lty.get(i));
+                }
+            }
+        }
+        brack(bracket);
+    }
+    public static void brack(ArrayList<Team> bracket){
+        for(int x = 0; x < bracket.size()/2; x++){
+            Main bob = new Main();
+            System.out.print(bracket.get(x).teamName + " vs " + bracket.get(x+1) + " = ");
+            if(bob.compare(bracket.get(x), bracket.get(x+1)) == 1){
+                bracket.remove(x+1);
+            }
+            else{
+                bracket.remove(x);
+            }
+        }
     }
 
     @Override

@@ -59,21 +59,25 @@ public class Team {
     }
     public double dgap(){
         gpa = 0;
-        gpa += drAvg*2;
         gpa += stlAvg*5;
         gpa += blkAvg*8;
+        gpa *= drAvg/8;
         return gpa;
     }
     public double ogap(){
         gpa = 0;
-        gpa += fgMadeAvg*(fgRatioAvg/100)*7;
-        gpa += fg3MadeAvg*(fg3RatioAvg/100)*20;
-        gpa += ftMadeAvg*(ftRatioAvg/100)*4;
+        /*gpa += fgMadeAvg*(fgRatioAvg/100)*7;
+        gpa += fg3MadeAvg*(fg3RatioAvg/100)*15;
+        gpa += ftMadeAvg*(ftRatioAvg/100)*4;*/
+        gpa += fgMadeAvg+fgRatioAvg;
+        gpa += fg3MadeAvg+fg3RatioAvg;
+        gpa += ftMadeAvg+ftRatioAvg;
         gpa += orAvg*4;
         gpa += astAvg*3.5;
         gpa -= toAvg*4;
         return gpa;
     }
+    public String teamName;
     public double gpa;
     public double fgRatioAvg = 0;
     public double fg3RatioAvg = 0;
