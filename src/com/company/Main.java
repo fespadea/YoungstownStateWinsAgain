@@ -51,18 +51,24 @@ public class Main implements Comparator{
         ArrayList<String> billo = new ArrayList<>();
         int [] bibo = new int[64];
         ArrayList<Team> bracket = new ArrayList<>();
+        Scanner input = new Scanner(System.in);
         for(int x = 0; x < 64; x++){
-            Scanner input = new Scanner(System.in);
             billo.add(input.nextLine());
+            System.out.println(billo.get(billo.size()-1));
+        }
+        for (int x = 0; x < 64; x++) {
             Scanner teams = new Scanner(new File("Teams.tsv"));
-            while (teams.hasNext()) {
-                if (teams.next().equals(billo.get(billo.size() - 1))) {
-                    bibo[x] = teams.nextInt() - 1;
+            for(int i = 0; i < 364; i++) {
+                if(bibo[x] == 0) {
+                    if (teams.nextLine().substring(5).equals(billo.get(x))) {
+                        bibo[x] = teams.nextInt() - 1;
+                    }
                 }
             }
             for (int i = 0; i < lty.size(); i++) {
                 if (lty.get(i).team == bibo[x]) {
                     lty.get(i).teamName = billo.get(x);
+                    System.out.println(x + lty.get(i).teamName);
                     bracket.add(lty.get(i));
                 }
             }
@@ -70,15 +76,24 @@ public class Main implements Comparator{
         brack(bracket);
     }
     public static void brack(ArrayList<Team> bracket){
-        for(int x = 0; x < bracket.size()/2; x++){
+        int t =  bracket.size()/2;
+        for(int x = 0; x <t; x++){
             Main bob = new Main();
-            System.out.print(bracket.get(x).teamName + " vs " + bracket.get(x+1) + " = ");
+            System.out.print(x + 1 + "." + bracket.get(x).teamName + " vs " + bracket.get(x+1).teamName + " = ");
             if(bob.compare(bracket.get(x), bracket.get(x+1)) == 1){
                 bracket.remove(x+1);
             }
             else{
                 bracket.remove(x);
             }
+            System.out.println(bracket.get(x).teamName);
+        }
+        if(bracket.size() > 1){
+            System.out.println();
+            brack(bracket);
+        }
+        else{
+            System.out.print("\n    " + bracket.get(0).teamName + " is the winner.");
         }
     }
 
