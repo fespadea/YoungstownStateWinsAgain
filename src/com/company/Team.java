@@ -59,9 +59,9 @@ public class Team {
     }
     public double dgap(){
         gpa = 0;
-        gpa += stlAvg*5;
-        gpa += blkAvg*8;
-        gpa *= drAvg/8;
+        gpa += stlAvg;
+        gpa += blkAvg;
+        gpa += drAvg;
         return gpa;
     }
     public double ogap(){
@@ -72,9 +72,9 @@ public class Team {
         gpa += fgMadeAvg+fgRatioAvg;
         gpa += fg3MadeAvg+fg3RatioAvg;
         gpa += ftMadeAvg+ftRatioAvg;
-        gpa += orAvg*4;
-        gpa += astAvg*3.5;
-        gpa -= toAvg*4;
+        //gpa += orAvg;
+        gpa += astAvg;
+        gpa -= toAvg;
         return gpa;
     }
     public String teamName;

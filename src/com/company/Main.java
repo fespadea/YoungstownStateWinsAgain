@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Main implements Comparator{
 
     public static void main(String[] args) throws IOException  {
-        Scanner yts = new Scanner(new File("RegularSeasonDetailedResults3YoungstownState (1) (2) (3) (4) (5) (6) (7) (8) (9).txt"));
+        Scanner yts = new Scanner(new File("RegularSeasonDetailedResults3YoungstownState (1) (2) (3) (4) (5) (6) (7).txt"));
         ArrayList<Team> lty = new ArrayList<>();
         Team bob = new Team(yts.nextInt());
         bob.acceptValues(yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble(),yts.nextDouble());
