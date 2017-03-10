@@ -54,7 +54,6 @@ public class Main implements Comparator{
         Scanner input = new Scanner(System.in);
         for(int x = 0; x < 64; x++){
             billo.add(input.nextLine());
-            System.out.println(billo.get(billo.size()-1));
         }
         for (int x = 0; x < 64; x++) {
             Scanner teams = new Scanner(new File("Teams.tsv"));
@@ -68,7 +67,6 @@ public class Main implements Comparator{
             for (int i = 0; i < lty.size(); i++) {
                 if (lty.get(i).team == bibo[x]) {
                     lty.get(i).teamName = billo.get(x);
-                    System.out.println(x + lty.get(i).teamName);
                     bracket.add(lty.get(i));
                 }
             }
