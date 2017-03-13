@@ -66,12 +66,12 @@ public class Team {
     }
     public double ogap(){
         gpa = 0;
-        /*gpa += fgMadeAvg*(fgRatioAvg/100)*7;
-        gpa += fg3MadeAvg*(fg3RatioAvg/100)*15;
-        gpa += ftMadeAvg*(ftRatioAvg/100)*4;*/
-        gpa += fgMadeAvg+fgRatioAvg;
-        gpa += fg3MadeAvg+fg3RatioAvg;
-        gpa += ftMadeAvg+ftRatioAvg;
+        //gpa += fgMadeAvg*(fgRatioAvg/100);
+        //gpa += fg3MadeAvg*(fg3RatioAvg/100);
+        //gpa += ftMadeAvg*(ftRatioAvg/100);
+        gpa += fgRatioAvg+fgMadeAvg;
+        gpa += fg3RatioAvg+fg3MadeAvg;
+        gpa += ftRatioAvg+ftMadeAvg;
         //gpa += orAvg;
         gpa += astAvg;
         gpa -= toAvg;

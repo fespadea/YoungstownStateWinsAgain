@@ -38,15 +38,15 @@ public class Main implements Comparator{
             System.out.println(bobo.team);
             System.out.println(bobo.dgap());
             System.out.println(bobo.ogap());
-            System.out.print(bobo.fgMadeAvg*(bobo.fgRatioAvg/100)*7 + "-");
-            System.out.print(bobo.fg3MadeAvg*(bobo.fg3RatioAvg/100)*20 + "-");
-            System.out.print(bobo.ftMadeAvg*(bobo.ftRatioAvg/100)*4 + "-");
-            System.out.print(bobo.orAvg*4 + "-");
-            System.out.print(bobo.drAvg*2 + "-");
-            System.out.print(bobo.astAvg*3.5 + "-");
-            System.out.print(bobo.toAvg*4 + "-");
-            System.out.print(bobo.stlAvg*5 + "-");
-            System.out.println(bobo.blkAvg*8);
+            System.out.print(bobo.fgMadeAvg*2 + bobo.fgRatioAvg + "-");
+            System.out.print(bobo.fg3MadeAvg*2 + bobo.fg3RatioAvg + "-");
+            System.out.print(bobo.ftMadeAvg*2 + bobo.ftRatioAvg + "-");
+            System.out.print(bobo.orAvg + "-");
+            System.out.print(bobo.drAvg + "-");
+            System.out.print(bobo.astAvg + "-");
+            System.out.print(bobo.toAvg + "-");
+            System.out.print(bobo.stlAvg + "-");
+            System.out.println(bobo.blkAvg);
         }
         ArrayList<String> billo = new ArrayList<>();
         int [] bibo = new int[64];
